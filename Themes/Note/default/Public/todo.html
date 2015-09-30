@@ -1,0 +1,78 @@
+<div class="row" ng-controller="todoController">
+    <div class="col-lg-6">
+        <div class="ibox">
+            <div class="ibox-content">
+                <h3>Todo</h3>
+                <p class="small"><i class="fa fa-hand-o-up"></i> 总共 <i ng-bind="todoTotal"></i> 个未开始的Todo.</p>
+                <div class="addTodo">
+                    <form class="form-horizontal" name="basic_form" method="post" ng-submit="addTodo()" novalidate>
+                        <div class="input-group">
+                            <input type="text" placeholder="添加新Todo" name="todo" ng-model="formData.todo" ng-minlength="4" class="input input-sm form-control" required="">
+                            <span class="input-group-btn">
+                                 <input type="hidden" ng-model="formData.auth">
+                                 <button type="submit" class="btn btn-sm btn-white" ng-disabled="basic_form.$invalid"> <i class="fa fa-plus"></i> 添加</button>
+                            </span>
+                        </div>
+                    </form>
+                </div>
+                <ul class="todo-list m-t connectList">
+
+                    <li class="me-warning" ng-repeat="todo in todoData">
+                        <input type="checkbox" value="" name="" class="i-checks" ng-click="updateTodo(1,todo.id)"/>
+                        <span class="m-l-xs" ng-bind="todo.todo"></span>
+                        <a href="javascript:void(0);" class="pull-right me-gray" ng-click="deleteTodo(0,todo.id)"><i class="fa fa-trash"></i></a>
+                        <input type="hidden" name="id" value="{{todo.id}}"/>
+                    </li>
+                </ul>
+                <paging
+                        class="small"
+                        page="todoPaging.currentPage"
+                        page-size="todoPaging.pageSize"
+                        total="todoPaging.total"
+                        adjacent="{{todoPaging.adjacent}}"
+                        dots="{{todoPaging.dots}}"
+                        scroll-top="{{todoPaging.scrollTop}}"
+                        hide-if-empty="{{todoPaging.hideIfEmpty}}"
+                        ul-class="{{todoPaging.ulClass}}"
+                        active-class="{{todoPaging.activeClass}}"
+                        disabled-class="{{todoPaging.disabledClass}}"
+                        show-prev-next="{{todoPaging.showPrevNext}}"
+                        paging-action="todoPage(page, pageSize, total)">
+                </paging>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <div class="ibox">
+            <div class="ibox-content">
+                <h3>In Completed</h3>
+                <p class="small"><i class="fa fa-hand-o-up"></i>  总共 <i ng-bind="completedTotal"></i> 个进行已经完成的Todo.</p>
+                <ul class="todo-list m-t connectList">
+
+                    <li class="me-info" ng-repeat="todo in completedData">
+                        <input type="checkbox" value="" name="" class="i-checks" ng-click="updateTodo(0,todo.id)"/>
+                        <span class="m-l-xs todo-completed" ng-bind="todo.todo"></span>
+                        <!--<small class="label label-primary"><i class="fa fa-clock-o"></i> 1 mins</small>--> <a href="javascript:void(0);" class="pull-right me-gray" ng-click="deleteTodo(1,todo.id)"><i class="fa fa-trash"></i></a>
+                        <input type="hidden" name="id" value="{{todo.id}}"/>
+                    </li>
+
+                </ul>
+                <paging
+                        class="small"
+                        page="completedPaging.currentPage"
+                        page-size="completedPaging.pageSize"
+                        total="completedPaging.total"
+                        adjacent="{{completedPaging.adjacent}}"
+                        dots="{{completedPaging.dots}}"
+                        scroll-top="{{completedPaging.scrollTop}}"
+                        hide-if-empty="{{completedPaging.hideIfEmpty}}"
+                        ul-class="{{completedPaging.ulClass}}"
+                        active-class="{{completedPaging.activeClass}}"
+                        disabled-class="{{completedPaging.disabledClass}}"
+                        show-prev-next="{{completedPaging.showPrevNext}}"
+                        paging-action="completedPage(page, pageSize, total)">
+                </paging>
+            </div>
+        </div>
+    </div>
+</div>

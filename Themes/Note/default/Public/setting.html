@@ -1,0 +1,38 @@
+<div class="row">
+    <div class="col-lg-12 animated fadeInRight">
+        <div class="mail-box-header">
+            <div class="pull-right tooltip-demo">
+                <a href="" class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top"
+                   title="Move to draft folder"><i class="fa fa-pencil"></i> Draft</a>
+            </div>
+            <h2>Setting</h2>
+        </div>
+        <div class="mail-box" ng-controller="settingController">
+            <form class="form-horizontal" method="post" ng-submit="processForm()">
+                <div class="mail-body">
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">网站名称</label>
+                        <div class="col-sm-10"><input type="text" class="form-control" name="web_name" ng-model="formData.web_name" value="" placeholder="网站名称"></div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">网站关键词</label>
+                        <div class="col-sm-10"><input type="text" class="form-control" name="keywords" ng-model="formData.keywords" value="" placeholder="网站关键词"></div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">网站描述</label>
+                        <div class="col-sm-10">
+                            <textarea name="description" id="description" class="form-control" ng-model="formData.description" placeholder="网站描述" cols="30" rows="3"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="mail-body text-right tooltip-demo">
+                    <button class="btn btn-sm btn-primary" id="submit" type="submit" data-toggle="tooltip" data-placement="top" title="Send"><i class="fa fa-reply"></i>提交</button>
+                    <button class="btn btn-white btn-sm" type="reset" data-toggle="tooltip" data-placement="top"
+                            title="Discard email"><i class="fa fa-times"></i> 清空</button>
+                </div>
+                <div class="clearfix"></div>
+            </form>
+        </div>
+    </div>
+</div>

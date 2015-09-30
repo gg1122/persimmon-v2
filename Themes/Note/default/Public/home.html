@@ -1,0 +1,48 @@
+<div class="row" ng-controller="countController">
+    <div class="col-md-4">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>笔记数量</h5>
+            </div>
+            <div class="ibox-content">
+                <h1 class="no-margins text-navy"><i ng-bind="data.note">0</i>/份</h1>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>Todo 数量</h5>
+            </div>
+            <div class="ibox-content">
+
+                <div class="row">
+                    <h1 class="no-margins text-navy"><i ng-bind="data.todo">0</i>条</h1>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>今日天气</h5>
+                <div class="ibox-tools">
+                </div>
+            </div>
+            <div class="ibox-content no-padding">
+                <div class="weather" style="padding: 10px;line-height: 1.8em;">
+                    日期：<i ng-bind="weather.date"></i> &nbsp;&nbsp;
+                    天气：<i ng-bind="weather.weather"></i> &nbsp;&nbsp;
+                    <!--<img src="{{weather.dayPictureUrl}}" alt="白天"/>
+                    <img src="{{weather.nightPictureUrl}}" alt="晚上"/>-->
+                    <br/>
+                    风级：<i ng-bind="weather.wind"></i> &nbsp;&nbsp;
+                    温度：<i ng-bind="weather.temperature"></i>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,81 @@
+<div class="row">
+    <div class="col-lg-3">
+        <div ui-view="notemenu"></div>
+    </div>
+    <div class="col-lg-9 animated fadeInRight" ng-controller="tagsController">
+        <div class="mail-box-header">
+
+            <!--<form method="get" ng-submit="getSearch()" class="pull-right mail-search" novalidate>
+                <div class="input-group">
+                    <input type="text" class="form-control input-sm" ng-model="formData.keyword" name="keyword" placeholder="搜索一下" required="">
+                    <div class="input-group-btn">
+                        <button type="submit" class="btn btn-sm btn-primary">
+                            Search
+                        </button>
+                    </div>
+                </div>
+            </form>-->
+            <h2 ng-bind="header"></h2>
+
+            <div class="mail-tools tooltip-demo m-t-md">
+                <div class="btn-group pull-right">
+                    <button class="btn btn-white btn-sm"><i class="fa fa-arrow-left"></i></button>
+                    <button class="btn btn-white btn-sm"><i class="fa fa-arrow-right"></i></button>
+                </div>
+                <button class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="left"
+                        title="Refresh inbox" onclick="javascript:location.reload();"><i class="fa fa-refresh"></i> Refresh
+                </button>
+                <button class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top"
+                        title="Mark as read"><i class="fa fa-eye"></i></button>
+                <button class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top"
+                        title="Mark as important"><i class="fa fa-exclamation"></i></button>
+                <button class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top"
+                        title="Move to trash"><i class="fa fa-trash-o"></i></button>
+            </div>
+        </div>
+        <div class="mail-box">
+
+            <table class="table table-hover table-mail">
+                <thead>
+
+                </thead>
+                <tbody>
+                <tr class="read" ng-repeat="note in data">
+                    <td class="check-mail">
+                        <input type="checkbox" class="i-checks">
+                    </td>
+                    <td class="mail-subject"><a ng-href="#/post/{{note.id}}">{{note.title}}</a></td>
+                    <td class="mail-ontact"><a ng-href="#/post/{{note.id}}">{{note.tags}}</a></td>
+                    <td class=""></td>
+                    <td class="text-right mail-date">{{note.create_time | date:'yyyy/MM/dd'}}</td>
+                </tr>
+                </tbody>
+            </table>
+
+        </div>
+        <paging
+                class=""
+                page="pagingconf.currentPage"
+                page-size="pagingconf.pageSize"
+                total="pagingconf.total"
+                adjacent="{{pagingconf.adjacent}}"
+                dots="{{pagingconf.dots}}"
+                scroll-top="{{pagingconf.scrollTop}}"
+                hide-if-empty="{{pagingconf.hideIfEmpty}}"
+                ul-class="{{pagingconf.ulClass}}"
+                active-class="{{pagingconf.activeClass}}"
+                disabled-class="{{pagingconf.disabledClass}}"
+                show-prev-next="{{pagingconf.showPrevNext}}"
+                paging-action="DoCtrlPagingAct(page, pageSize, total)">
+        </paging>
+    </div>
+</div><!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+</body>
+</html>

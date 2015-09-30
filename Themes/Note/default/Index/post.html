@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<head>
+    <meta charset="utf-8">
+    <title>Mr.Cong</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{$_static}/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="{$_static}/font-awesome/css/font-awesome.css"/>
+    <link rel="stylesheet" href="/Public/static/js/plugins/layer/skin/layer.css"/>
+    <link rel="stylesheet" href="{$_static}/css/style.css"/>
+    <!--[if lt IE 9]>
+    <script src="http://apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js"></script>
+    <script src="http://apps.bdimg.com/libs/respond.js/1.4.2/respond.js"></script>
+    <![endif]-->
+    <style>body{background:#FFF}.header{background:RGB(245,245,245);padding:2em;margin-bottom:10px;color:#1ab394}#submit{width:100%}.form-control{border:1px solid #1ab394!important;border-radius:1px;font-size:14px;box-shadow:none!important;width:100%}.input-group-addon{border:1px solid #1ab394!important;background:#1ab394!important;color:#FFF;min-width:42px}.col-centered{float:none;margin:0 auto}</style>
+</head>
+<body>
+<div id="header">
+    <div class="row header">
+        <div class="content-box col-lg-6 col-md-8 col-xs-8 col-centered">
+            <i class="fa fa-bookmark"></i> 收藏网页
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="wrapper col-lg-6 col-md-8 col-xs-8 col-centered">
+            <if condition="$user.uid eq false">
+                <!--<form action="" method="post" id="login" class="form-horizontal">
+                    <div class="header-text">
+                        <p>您还没有登陆,请先登陆.</p>
+                    </div>
+                    <div class="form-group">
+                        <label class="sr-only" for="username">用户名</label>
+
+                        <div class="input-group">
+                            <input type="text" placeholder="用户名" class="form-control" name="username" id="username"
+                                   value=""/>
+
+                            <div class="input-group-addon"><i class="fa fa-user"></i></div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="sr-only" for="password">密 码</label>
+
+                        <div class="input-group">
+                            <input type="password" placeholder="密码" class="form-control" name="password" id="password"
+                                   value=""/>
+
+                            <div class="input-group-addon"><i class="fa fa-key"></i></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="large-12 columns">
+                            <button type="submit" id="submit" class="btn btn-primary">登陆</button>
+                        </div>
+                    </div>
+                </form>-->
+                <div class="col-md-12">
+                    <div class="ibox-content">
+                        <form class="m-t" name="basic_form" method="post" id="basic_form" role="form" novalidate>
+                            <p>请使用新浪微博登录。</p>
+                            <a class="btn btn-sm btn-white btn-block" href="/weibo/login?callback={$callback}"><i class="fa fa-weibo me-weibo"></i>新浪微博</a>
+                        </form>
+                        <p class="m-t">
+                            <small></small>
+                        </p>
+                    </div>
+                </div>
+                <else/>
+                <form method="post" id="addFavorite">
+
+                    <div class="form-group">
+                        <label class="sr-only" for="title">描述</label>
+                        <textarea placeholder="描述" class="form-control" name="title" id="title" cols="30" rows="5">{:I('title')}</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label class="sr-only" for="source">网址</label>
+
+                        <div class="input-group">
+                            <input type="text" placeholder="网址" class="form-control" name="source" id="source"
+                                   value="{:I('source')}"/>
+                            <div class="input-group-addon"><i class="fa fa-link"></i></div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="sr-only" for="source">标签</label>
+
+                        <div class="input-group">
+                            <input type="text" placeholder="标签" class="form-control" name="tags" id="tags"
+                                   value=""/>
+                            <div class="input-group-addon"><i class="fa fa-tag"></i></div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="sr-only" for="submit"></label>
+                        <input type="hidden" name="userid" value="{$user.uid}" readonly/>
+                        <input type="hidden" name="userid" value="{$user.uid}" readonly/>
+                        <button type="submit" id="submit" class="btn btn-primary">收 藏</button>
+                    </div>
+
+                </form>
+            </if>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>
+<script src="{$_static}/js/jquery-2.1.1.js"></script>
+<script src="/Public/static/js/jquery.form.js"></script>
+<script src="{$_static}/js/fav.js"></script>
+<script src="/Public/static/js/plugins/layer/layer.js"></script>
+</body>
+</html>

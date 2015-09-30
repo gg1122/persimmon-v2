@@ -1,0 +1,46 @@
+<div class="row">
+    <div class="col-lg-3">
+        <div ui-view="notemenu"></div>
+    </div>
+    <div class="col-lg-9 animated fadeInRight">
+        <div class="mail-box-header">
+            <div class="pull-right tooltip-demo">
+                <a href="" class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top"
+                   title="Move to draft folder"><i class="fa fa-pencil"></i> Draft</a>
+            </div>
+            <h2>Post Note</h2>
+        </div>
+        <div class="mail-box" ng-controller="editNoteController">
+            <form class="form-horizontal" method="post" ng-submit="processForm()">
+                <div class="mail-body">
+                    <div class="form-group"><label class="col-sm-2 control-label">Subject:</label>
+                        <div class="col-sm-10"><input type="text" class="form-control" name="title" ng-model="formData.title" value=""></div>
+                    </div>
+                    <div class="form-group"><label class="col-sm-2 control-label">Category:</label>
+                        <div class="col-sm-10">
+                            <label class="me-check-p10 me-fst category-list-input" ng-repeat="cate in category">
+                                <input type="radio" ng-model="formData.category" value="{{cate.value}}" name="category"/> <i></i> {{cate.value}}
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group"><label class="col-sm-2 control-label">Tags:</label>
+                        <div class="col-sm-10"><input type="text" name="tags" class="form-control" ng-model="formData.tags" value=""></div>
+                    </div>
+                </div>
+                <div class="mail-text h-200">
+                    <div simditor data-autosave="editor-content" autofocus ng-model="formData.content"></div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="mail-body text-right tooltip-demo">
+                    <input type="hidden" ng-model="formData.auth" name="auth">
+                    <button class="btn btn-sm btn-primary" id="submit" type="submit" data-toggle="tooltip" data-placement="top" title="Send"><i class="fa fa-reply"></i>提交</button>
+                    <button class="btn btn-white btn-sm" type="reset" data-toggle="tooltip" data-placement="top"
+                            title="Discard email"><i class="fa fa-times"></i> 清空</button>
+                    <!--<a href="" class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top"
+                       title="Move to draft folder"><i class="fa fa-pencil"></i> Draft</a>-->
+                </div>
+                <div class="clearfix"></div>
+            </form>
+        </div>
+    </div>
+</div>

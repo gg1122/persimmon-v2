@@ -1,0 +1,43 @@
+<div class="row">
+    <div class="col-lg-3" print-remove>
+        <div ui-view="notemenu"></div>
+    </div>
+    <div class="col-lg-9 animated fadeInRight" ng-controller="archivesController">
+        <div class="content_body" print-section>
+            <div class="mail-box-header">
+                <div class="pull-right tooltip-demo" print-hide>
+                    <a href="javascript:history.go(-1);" class="btn btn-white btn-sm" data-toggle="tooltip"
+                       data-placement="top" title="Reply"><i class="fa fa-reply"></i> back</a>
+                    <a print-btn class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top" title="Print"><i
+                            class="fa fa-print"></i> </a>
+                    <a ng-href="#/edit/{{note.id}}" class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top" title="edit"><i
+                            class="fa fa-edit"></i> </a>
+                    <a ng-click="deleteNote()" class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top"
+                       title="Move to trash"><i class="fa fa-trash-o"></i> </a>
+                </div>
+                <h2>笔记日期存档</h2>
+
+            </div>
+            <div class="mail-box">
+                <div class="mail-body">
+                    <!--< div class="content" n g- bind- html="note.content | to_trusted"></div>-->
+                    <div class="content" id="notecontent"></div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="mail-body text-right tooltip-demo" print-hide>
+                    <a class="btn btn-sm btn-white" href="javascript:history.go(-1);"><i class="fa fa-reply"></i> back</a>
+                    <!--<a class="btn btn-sm btn-white" href=""><i class="fa fa-arrow-right"></i> Forward</a>-->
+                    <button title="" data-placement="top" data-toggle="tooltip" type="button" data-original-title="Print"
+                            class="btn btn-sm btn-white"><i class="fa fa-print"></i> Print
+                    </button>
+                    <button title="" data-placement="top" data-toggle="tooltip" data-original-title="Trash"
+                            class="btn btn-sm btn-white" ng-click="deleteNote()"><i class="fa fa-trash-o"></i> Remove
+                    </button>
+                </div>
+                <div class="clearfix"></div>
+
+
+            </div>
+        </div>
+    </div>
+</div>

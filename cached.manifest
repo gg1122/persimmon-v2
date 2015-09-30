@@ -1,0 +1,67 @@
+CACHE MANIFEST
+# 以上折行必需要写
+#v1.0
+
+CACHE:
+# 这部分写需要缓存的资源文件列表
+# 可以是相对路径也可以是绝对路径
+/Public/static/css/bootstrap.min.css
+/Public/static/css/animate.css
+/Public/static/simditor/styles/simditor.css
+/Public/static/js/plugins/layer/skin/layer.css
+/Public/static/css/style.css?v1.0
+/Public/static/js/jquery-2.1.1.js
+/Public/static/js/jquery-migrate.min.js
+/Public/static/js/bootstrap.min.js
+/Public/static/js/plugins/layer/layer.js
+/Public/static/js/plugins/prism/prism.min.js
+/Public/static/js/plugins/prism/prism.min.css
+/Public/static/simditor/scripts/simditor.min.js
+/Public/static/js/custom.js
+/Public/static/angular/angular.min.js
+/Public/static/angular/angular-ui-router.min.js
+/Public/static/angular/angular-cookies.min.js
+/Public/static/angular/angular-sanitize.min.js
+/Public/static/angular/angularPrint.js
+/Public/static/js/app.js
+/Public/static/js/controllers.js
+/Public/static/js/directive.js
+/Public/static/js/services.js
+/Public/static/js/filter.js
+/favicon.ico
+/Public/static/img/login_page_show_girl.jpg
+#HTML模版
+/Themes/Note/default/Public/login.html
+/Themes/Note/default/Index/index.html
+/Themes/Note/default/Public/add.html
+/Themes/Note/default/Public/edit.html
+/Themes/Note/default/Public/home.html
+/Themes/Note/default/Public/index.html
+/Themes/Note/default/Public/login.html
+/Themes/Note/default/Public/note.html
+/Themes/Note/default/Public/note_post.html
+/Themes/Note/default/Public/setting.html
+/Themes/Note/default/Public/sidebar.html
+/Themes/Note/default/Public/tag.html
+/Themes/Note/default/Public/todo.html
+/Themes/Note/default/Public/weibo_callback.html
+/Themes/Note/default/Todo/index.html
+/Themes/Note/default/Todo/todo.html
+#字体图标、静态文件
+/Public/static/font-awesome/css/font-awesome.css
+/Public/static/font-awesome/fonts/fontawesome-webfont.woff2
+/Public/static/font-awesome/fonts/fontawesome-webfont.woff
+/Public/static/font-awesome/fonts/fontawesome-webfont.ttf
+/Public/static/font-awesome/fonts/fontawesome-webfont.svg
+/Public/static/font-awesome/fonts/fontawesome-webfont.eot
+https://cn.gravatar.com/avatar/9cbb0e512914be897fd93d3de1aeda26?s=50&d=identicon
+
+NETWORK:
+# 可选
+# 这一部分是要绕过缓存直接读取的文件
+*
+
+FALLBACK:
+# 可选
+# 这部分写当访问缓存失败后，备用访问的资源
+# 每行两个文件，第一个是访问源，第二个是替换文件*.html /offline.html

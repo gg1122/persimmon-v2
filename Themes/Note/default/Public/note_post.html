@@ -1,0 +1,55 @@
+<div class="row">
+    <div class="col-lg-3" print-remove>
+        <div ui-view="notemenu"></div>
+    </div>
+    <div class="col-lg-9 animated fadeInRight" ng-controller="notePostController">
+        <div class="content_body" print-section>
+            <div class="mail-box-header">
+                <div class="pull-right tooltip-demo" print-hide>
+                    <a href="javascript:history.go(-1);" class="btn btn-white btn-sm" data-toggle="tooltip"
+                       data-placement="top" title="Reply"><i class="fa fa-reply"></i> back</a>
+                    <a print-btn class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top" title="Print"><i
+                            class="fa fa-print"></i> </a>
+                    <a ng-href="#/edit/{{note.id}}" class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top" title="edit"><i
+                            class="fa fa-edit"></i> </a>
+                    <a ng-click="deleteNote()" class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top"
+                       title="Move to trash"><i class="fa fa-trash-o"></i> </a>
+                </div>
+                <h2 ng-bind="note.title"></h2>
+                <div class="mail-tools tooltip-demo m-t-md">
+                    <h3>
+                        <span class="font-noraml">User：<i ng-bind="note.username" class="me-nfs"></i></span>
+                    </h3>
+                    <h5>
+                        <span class="pull-right font-noraml" ng-bind="note.create_time * 1000|date:'yyyy-MM-dd HH:mm:ss'"></span>
+                        <span class="font-noraml">From: <i ng-bind="note.ipAddress" class="me-nfs"></i></span>
+                    </h5>
+                </div>
+            </div>
+            <div class="mail-box">
+                <div class="mail-body">
+                    <div class="content" id="notecontent"></div>
+                    <div class="clearfix"></div>
+                    <div class="tags">
+                        <span class="font-noraml fl">Tags:</span>
+                        <ul>
+                            <li class="fl me-tag" ng-repeat="tag in tags">
+                                <a ng-href="#/tag/{{tag}}"><i class="fa fa-tag"></i>{{tag}}</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mail-body text-right tooltip-demo" print-hide>
+                    <a class="btn btn-sm btn-white" href="javascript:history.go(-1);"><i class="fa fa-reply"></i> back</a>
+                    <button title="" data-placement="top" data-toggle="tooltip" type="button" data-original-title="Print"
+                            class="btn btn-sm btn-white"><i class="fa fa-print"></i> Print
+                    </button>
+                    <button title="" data-placement="top" data-toggle="tooltip" data-original-title="Trash"
+                            class="btn btn-sm btn-white" ng-click="deleteNote()"><i class="fa fa-trash-o"></i> Remove
+                    </button>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
