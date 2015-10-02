@@ -2,7 +2,7 @@
  * Created by MrCong on 15/5/1.
  */
 
-var NoteApp = angular.module('NoteApp', ['ui.router','ui.bootstrap','ngCookies','ngSanitize','wu.masonry','infinite-scroll','AngularPrint','persimService','noteDirective','perismFilter','myNote']);
+var NoteApp = angular.module('NoteApp', ['ui.router','ui.bootstrap','ngCookies','ngSanitize','LocalStorageModule','wu.masonry','infinite-scroll','AngularPrint','persimService','noteDirective','perismFilter','myNote']);
 
 NoteApp.config(function ($stateProvider,$urlRouterProvider) {
 

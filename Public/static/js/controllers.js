@@ -73,12 +73,12 @@ myNote.controller('mainController',['$rootScope','$scope','$location','$modal','
 
 }]);
 
-myNote.controller('categoryController',['$scope','$location','$cookieStore','Data', function ($scope,$location,$cookieStore,Data) {
+myNote.controller('categoryController',['$scope','$location','$cookieStore','localStorageService','Data', function ($scope,$location,$cookieStore,localStorageService,Data) {
 
     $scope.category = {};
     $scope.getCategory = function () {
         //如果存在本地LocalStorage缓存则读缓存
-        var category = storageBP.S("category");
+        var category = localStorageService.get("category");
         if(category!=undefined){
             $scope.category = category;
             return false;
@@ -87,7 +87,7 @@ myNote.controller('categoryController',['$scope','$location','$cookieStore','Dat
         $scope.cateUrl = 'attribute/list?';
         Data.get($scope.cateUrl).then(function (result) {
             if (result.code==50001) {
-                storageBP.S("category",result.cate);
+                localStorageService.set("category",result.cate);
                 $scope.category = result.cate;
             } else {
                 console.log('(┬＿┬)额，服务器老兄好像没有给我返回类别的数据.我正准备打他~');
