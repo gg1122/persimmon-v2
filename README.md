@@ -8,6 +8,8 @@
 
 Example：https://i.cong5.net/
 
+![alt text](https://i.cong5.net/20151005175200.png)
+
 ## Note 笔记管理模块(主模块)
 
 本系统基于“如何构建完善的笔记系统”来开发的，Note模块是整个系统唯一的后台，后端PHP只抛出JSON格式的数据，前端完全使用AngularJS来开发，由于目前是单用户使用，所以暂时不涉及权限控制，目前只有用户登陆。
