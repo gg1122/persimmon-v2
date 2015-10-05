@@ -208,7 +208,7 @@ myNote.controller('noteController', ['$scope', '$stateParams', 'Data', function 
     $scope.formData = {};
     $scope.getSearch = function (keyword) {
         $scope.pagingconf.total = 0;
-        $scope.SearchUrl = 'notes/search/'+$scope.formData.keyword;
+        $scope.SearchUrl = 'notes/search/'+$scope.formData.keyword + '?';
         Data.get($scope.SearchUrl).then(function (result) {
             $scope.data = result.note;
         });
