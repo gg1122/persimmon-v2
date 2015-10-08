@@ -8,7 +8,7 @@
 
 Example：https://i.cong5.net/
 
-![alt text](https://i.cong5.net/20151005175200.png)
+![alt text](https://i.cong5.net/Public/browser/images/20151005175200.png)
 
 ## Note 笔记管理模块(主模块)
 
