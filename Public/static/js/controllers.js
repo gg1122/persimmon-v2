@@ -264,14 +264,14 @@ myNote.controller('notePostController',['$scope','$location','$sce','$compile','
 }]);
 
 /* Note Post Controller */
-myNote.controller('addNoteController', ['$scope','$stateParams','$cookieStore','$location','Data',function ($scope,$stateParams,$cookieStore,$location,Data) {
+myNote.controller('addNoteController', ['$scope','$stateParams','$cookieStore','$location','localStorageService','Data',function ($scope,$stateParams,$cookieStore,$location,localStorageService,Data) {
 
     var ticket = $cookieStore.get('persm_ticket');
 
     $scope.category = [{'id':'00','value':'inbox'}, {'id':'01','value':'note'}, {'id':'02','value':'knowledge'}];
     $scope.getCategory = function () {
         //如果存在本地LocalStorage缓存则读缓存
-        var category = storageBP.S("category");
+        var category = localStorageService.get("category");
         if(category!=undefined){
             //根据JSON数组长度吧数据压入到数组中
             for (var i = 0; i < category.length; i++) {
@@ -283,7 +283,7 @@ myNote.controller('addNoteController', ['$scope','$stateParams','$cookieStore','
         $scope.cateUrl = 'attribute/list?';
         Data.get($scope.cateUrl).then(function (result) {
             if (result.code==50001) {
-                storageBP.S("category",result.cate);
+                localStorageService.set("category",result.cate);
                 var items = result.cate;
                 //根据JSON数组长度吧数据压入到数组中
                 for (var i = 0; i < items.length; i++) {
@@ -315,13 +315,13 @@ myNote.controller('addNoteController', ['$scope','$stateParams','$cookieStore','
 }]);
 
 /* Note Post Controller */
-myNote.controller('editNoteController', ['$scope','$location','$cookieStore','$stateParams','Data',function ($scope,$location,$cookieStore,$stateParams,Data) {
+myNote.controller('editNoteController', ['$scope','$location','$cookieStore','$stateParams','localStorageService','Data',function ($scope,$location,$cookieStore,$stateParams,localStorageService,Data) {
 
     var ticket = $cookieStore.get('persm_ticket');
     $scope.category = [{'id':'00','value':'inbox'}, {'id':'01','value':'note'}, {'id':'02','value':'knowledge'}];
     $scope.getCategory = function () {
         //如果存在本地LocalStorage缓存则读缓存
-        var category = storageBP.S("category");
+        var category = localStorageService.get("category");
         if(category!=undefined){
             //根据JSON数组长度吧数据压入到数组中
             for (var i = 0; i < category.length; i++) {
@@ -333,7 +333,7 @@ myNote.controller('editNoteController', ['$scope','$location','$cookieStore','$s
         $scope.cateUrl = 'attribute/list?';
         Data.get($scope.cateUrl).then(function (result) {
             if (result.code==50001) {
-                storageBP.S("category",result.cate);
+                localStorageService.set("category",result.cate);
                 var items = result.cate;
                 //根据JSON数组长度吧数据压入到数组中
                 for (var i = 0; i < items.length; i++) {
