@@ -6,6 +6,8 @@
 
 前台使用了AngularJS来做前台框架，然后向API接口提交和请求数据。
 
+程序运行需要Redis的支持，登录后的验证信息和缓存文件都是保存在Redis里面的。
+
 Example：https://i.cong5.net/
 
 ![alt text](https://i.cong5.net/Public/browser/images/20151005175200.png)
