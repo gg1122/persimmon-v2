@@ -120,12 +120,16 @@ class UsersModel extends Model
     ) {
         $nowTime = time();
 
+        $shortStr = short($nowTime+rand(10));
+
         $userData = array(
             'username' => $weibo_name,
             'password' => md5(md5($weibo_id) . $nowTime),
             'description' => $weibo_description,
             'address' => $weibo_address,
             'wechat_openid' => '',
+            'salt' => $shortStr[0],
+            'ticket' => md5($shortStr[0]+rand(10)),
             'weibo_id' => $weibo_id,
             'weibo_domain' => $weibo_domain,
             'weibo_avatar' => $weibo_avatar,

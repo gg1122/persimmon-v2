@@ -12,7 +12,7 @@ class FavoritesModel extends CommonModel
      * 查询的字段
      * @field string
      */
-    protected $field = 'id,userid,title,source,snapshot,thumb,create_time,update_time';
+    protected $field = 'id,userid,title,tags,source,snapshot,thumb,create_time,update_time';
 
     /**
      * 自动完成
@@ -73,7 +73,7 @@ class FavoritesModel extends CommonModel
             return false;
         }
 
-        self::createFsockopen($data['source'], $this->getLastInsID());
+        //self::createFsockopen($data['source'], $this->getLastInsID());
 
         return true;
 
@@ -116,7 +116,7 @@ class FavoritesModel extends CommonModel
      * @return bool
      * @author Mr.Cong <i@cong5.net>
      */
-    public function favDelete()
+    public function favDelete($uid)
     {
         $id = I('id', 0);
 
@@ -127,7 +127,8 @@ class FavoritesModel extends CommonModel
         }
 
         $map = array(
-            $this->pk => array('in', $id)
+            $this->pk => array('in', $id),
+            'userid' => array('eq',$uid)
         );
 
         $res = $this->_delete($map);

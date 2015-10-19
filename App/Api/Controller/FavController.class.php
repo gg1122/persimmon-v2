@@ -35,9 +35,13 @@ class FavController extends CommonController
     public function favList()
     {
 
-        $list = $this->model->getList();
+        $map = array(
+            'userid' => array('eq',$this->userInfo['uid'])
+        );
 
-        $count = $this->model->_count();
+        $list = $this->model->getList($map);
+
+        $count = $this->model->_count($map);
 
         $data = array(
             'list' => $list,
@@ -90,6 +94,7 @@ class FavController extends CommonController
         }
 
         $map = array(
+            'userid' => array('eq',$this->userInfo['uid']),
             'title' => array('like','%'.$keyword.'%')
         );
 
@@ -112,7 +117,7 @@ class FavController extends CommonController
      */
     public function delete()
     {
-        $res = $this->model->favDelete();
+        $res = $this->model->favDelete($this->userInfo['uid']);
 
         if ($res == false) {
             $data = array(

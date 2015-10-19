@@ -163,6 +163,7 @@ class NotesController extends CommonController
         switch ($type) {
             case "tag":
                 $map = array(
+                    'userid' => array('eq',$this->userInfo['uid']),
                     'delete' => array('neq', 1),
                     'tags' => array('like', '%' . $filter . '%')
                 );
@@ -210,6 +211,7 @@ class NotesController extends CommonController
 
         //查询条件
         $map = array(
+            'userid' => array('eq',$this->userInfo['uid']),
             'delete' => array('neq', 1),
             'title' => array('like', '%' . $keyword . '%'),
         );
@@ -236,12 +238,14 @@ class NotesController extends CommonController
 
         //笔记统计
         $NoteMap = array(
+            'userid' => array('eq',$this->userInfo['uid']),
             'delete' => array('neq', 1)
         );
         $noteCount = $this->model->_count($NoteMap);
 
         //To-Do统计
         $todoMap = array(
+            'userid' => array('eq',$this->userInfo['uid']),
             'status' => array('eq',0)
         );
         $todoCount = $todoDB->where($todoMap)->count();
@@ -265,6 +269,7 @@ class NotesController extends CommonController
         $output = '<div id="archives"><p>[<a id="al_expand_collapse" href="#">全部展开/收缩</a>] <em>(注: 点击月份可以展开)</em></p>';
         //条件
         $map = array(
+            'userid' => array('eq',$this->userInfo['uid']),
             'delete' => array('neq', 1),
         );
         $order = 'id DESC';
@@ -312,12 +317,12 @@ class NotesController extends CommonController
         //获取客户端IP
         $client_ip = get_client_ip();
         //如果是本地，且是DEBUG是TRUE，则把IP替换一下，让其正常显示数据
-        if ('127.0.0.1' === $client_ip && DEBUG) {
+        if ('127.0.0.1' === $client_ip) {
             $client_ip = '116.10.197.226';
         }
 
         //根据IP来获取所在城市
-        $ip_api = C('IPADDR_API') . $client_ip;
+        $ip_api = sprintf(C('IPADDR_API'),$client_ip);
         $ipData = curl_request($ip_api);
         $enIpData = json_decode($ipData, true);
 
@@ -326,7 +331,7 @@ class NotesController extends CommonController
         $weather_api = C('WEATHER_API') . $city;
         $weatherData = curl_request($weather_api);
         $data = json_decode($weatherData, true);
-        $SourceWeather = $data['results'][0][weather_data][0];
+        $SourceWeather = $data['results'][0]['weather_data'][0];
 
         //筛选和重组数据
         $weather = array(
@@ -337,8 +342,6 @@ class NotesController extends CommonController
             'wind' => $SourceWeather['wind'],
             'temperature' => $SourceWeather['temperature']
         );
-
-        //$timeout = strtotime(date('H:i:s')) - strtotime(date('23:59:50'));
 
         S('weather', $weather, $this->cachedOptionsWithRedis);
 

@@ -13,13 +13,13 @@ class AttributeController extends CommonController
 {
 
     /**
-     * Ä£ĞÍ¶ÔÏó
+     * æ¨¡å‹å¯¹è±¡
      * @Model
      */
     protected $model;
 
     /**
-     * ³õÊ¼»¯Êı¾İÄ£ĞÍ
+     * åˆå§‹åŒ–æ•°æ®æ¨¡å‹
      * @author Mr.Cong <i@cong5.net>
      */
     public function _initialize()
@@ -29,7 +29,7 @@ class AttributeController extends CommonController
     }
 
     /**
-     * Àà±ğÁĞ±í
+     * ç±»åˆ«åˆ—è¡¨
      */
     public function index()
     {
@@ -56,12 +56,12 @@ class AttributeController extends CommonController
     }
 
     /**
-     * Êı¾İ×Ô¶¯»ñÈ¡ºÍÑéÖ¤
+     * æ•°æ®è‡ªåŠ¨è·å–å’ŒéªŒè¯
      * @author Mr.Cong <i@cong5.net>
      */
     protected function validate()
     {
-        //¸ù¾İÊı¾İµÄÌá½»·½Ê½À´»ñÈ¡ºÍÑéÖ¤Êı¾İ
+        //æ ¹æ®æ•°æ®çš„æäº¤æ–¹å¼æ¥è·å–å’ŒéªŒè¯æ•°æ®
         switch($this->_method){
             case 'post':
                 if(!$this->model->create()){
@@ -87,7 +87,7 @@ class AttributeController extends CommonController
     }
 
     /**
-     * ĞÂÔöÀà±ğ
+     * æ–°å¢ç±»åˆ«
      */
     public function addCate()
     {
@@ -95,13 +95,13 @@ class AttributeController extends CommonController
 
         $result = $this->model->cateUpdate($this->userInfo['uid'],'add');
 
-        $resultData = $this->result($result, "Àà±ğÌí¼Ó³É¹¦", "Àà±ğÌí¼ÓÊ§°Ü");
+        $resultData = $this->result($result, "ç±»åˆ«æ·»åŠ æˆåŠŸ", "ç±»åˆ«æ·»åŠ å¤±è´¥");
 
         $this->response($resultData, 'json');
     }
 
     /**
-     * ±à¼­Àà±ğ
+     * ç¼–è¾‘ç±»åˆ«
      */
     public function editCate()
     {
@@ -109,13 +109,13 @@ class AttributeController extends CommonController
 
         $result = $this->model->cateUpdate($this->userInfo['uid'],'edit');
 
-        $resultData = $this->result($result, "Àà±ğ±à¼­³É¹¦", "Àà±ğ±à¼­Ê§°Ü");
+        $resultData = $this->result($result, "ç±»åˆ«ç¼–è¾‘æˆåŠŸ", "ç±»åˆ«ç¼–è¾‘å¤±è´¥");
 
         $this->response($resultData, 'json');
     }
 
     /**
-     * É¾³ıÀà±ğ
+     * åˆ é™¤ç±»åˆ«
      */
     public function deleteCate()
     {
@@ -126,7 +126,7 @@ class AttributeController extends CommonController
 
         $result = $this->model->_delete($map);
 
-        $resultData = $this->result($result, "Àà±ğÉ¾³ı³É¹¦", "Àà±ğÉ¾³ıÊ§°Ü");
+        $resultData = $this->result($result, "ç±»åˆ«åˆ é™¤æˆåŠŸ", "ç±»åˆ«åˆ é™¤å¤±è´¥");
 
         $this->response($resultData, 'json');
     }

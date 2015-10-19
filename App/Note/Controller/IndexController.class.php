@@ -52,7 +52,8 @@ class IndexController extends controller
         //判断权限
         $ticketByCookie = cookie('ticket');
         $ticket = json_decode($ticketByCookie);
-        $this->user = $this->Redis->get($ticket);
+        $userInfo = $this->Redis->get($ticket);
+        $this->user = unserialize($userInfo);
 
         $callback = str_replace('.net//','.net/',get_site_url().$_SERVER['REQUEST_URI']);
         $this->callback = base64_encode($callback);

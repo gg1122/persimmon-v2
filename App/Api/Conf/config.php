@@ -33,6 +33,8 @@ return array(
         array('v2/fav/post','Fav/post','',array('method' => 'POST')),
         array('v2/fav/list','Fav/favList','',array('method' => 'GET')),
         array('v2/fav/search','Fav/search','',array('method' => 'GET')),
+        array('v2/fav/delete','Fav/delete','',array('method' => 'OPTIONS')),
+        array('v2/fav/delete','Fav/delete','',array('method' => 'DELETE')),
         array('v2/fav/thumb','Fav/createThumb','',array('method' => 'GET')),
         //Empty
         array('v2/notes', 'Notes/_empty', '', array('method' => 'GET')),

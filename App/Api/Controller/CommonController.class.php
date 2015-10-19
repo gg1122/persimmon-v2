@@ -16,6 +16,17 @@ class CommonController extends RestController
     protected $userInfo = array();
     protected $Redis;
     /**
+     * Redis 缓存选项 (供S方法使用)
+     * @cachedOptionsWithRedis array
+     */
+    protected $cachedOptionsWithRedis = array(
+        'type' => 'Redis',
+        'host' => '127.0.0.1',
+        'port' => '6379',
+        'prefix' => 'per_',
+        'expire' => 3600
+    );
+    /**
      *初始化，定义主题目录
      */
     public function _initialize()
